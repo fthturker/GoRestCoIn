@@ -5,7 +5,7 @@ Feature: Api testing for CRUID operators
 
   Scenario Outline: POST -Create a new user
     Given set api end point "public/v2/users"
-    And User creates new user with request body "<Name>,"<Gender>,"<Email>","<Status>"
+    And User creates new user with request body "<Name>","<Gender>","<Email>","<Status>"
     Then validate the status code 201
     And validate the userId is not null
     And validate the user name is "<Name>"
