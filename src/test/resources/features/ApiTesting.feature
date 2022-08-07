@@ -16,5 +16,5 @@ Feature: Api testing for CRUID operators
 
     Examples:
       | Name       | Gender | Email                 | Status   |
-      | Fatih Turk | male   | fthturker80@gmail.com | inactive |
+      | Fatih Turk | male   | fthturker82@gmail.com | inactive |
 

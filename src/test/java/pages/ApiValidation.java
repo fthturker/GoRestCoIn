@@ -1,7 +1,7 @@
 package pages;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import jdk.jfr.ContentType;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,10 +12,16 @@ import static io.restassured.RestAssured.given;
 
 
 public class ApiValidation {
+    public Response response;
+
     protected Response postMethod(String name, String gender, String email, String status) {
         String requestBody = updateBody(name, gender, email, status);
-        Response response = (Response) given().headers("Authorization", "Bearer 6f2e7993ee1b5fafcd799ef42bb59b9f2d8ed06d96411f1759b1bc1c98e3fcec",
-                "Content Type", "application/json", "Accept", "*/*").body(requestBody).post();
+        Response response = given()
+                .headers("Authorization", "Bearer 6f2e7993ee1b5fafcd799ef42bb59b9f2d8ed06d96411f1759b1bc1c98e3fcec",
+                        "Content-Type", "application/json", "Accept", ContentType.JSON).
+                body(requestBody)
+                .post();
+
 
         return response;
     }
